@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 public class UsuarioController {
@@ -28,5 +30,10 @@ public class UsuarioController {
     @GetMapping("/user")
     private String listuser(){
         return "SÓ USER PODE ACESSAR";
+    }
+
+    @GetMapping("/admin/listAll")
+    private List<UsuarioDTO> listAllUser(){
+        return usuarioService.listar();
     }
 }

@@ -33,6 +33,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.GET, "/users/admin").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/users/user").hasRole("USER")
+                        .requestMatchers(HttpMethod.GET, "/users/admin/listAll").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth").permitAll()
                         .anyRequest().authenticated()
